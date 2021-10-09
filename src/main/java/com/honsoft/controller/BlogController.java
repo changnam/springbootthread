@@ -36,7 +36,12 @@ public class BlogController {
         return new ResponseEntity<List>((List) blogService.getAllBlogs(), HttpStatus.OK);
     }
     @GetMapping("blog/{id}")
-    public ResponseEntity getBlogById(@PathVariable("id") int id) throws BlogNotFoundException {
-        return new ResponseEntity(blogService.getBlogById(id), HttpStatus.OK);
+    public ResponseEntity getBlogById(@PathVariable("id") int id) {
+    	 try{
+    		    return new ResponseEntity(blogService.getBlogById(id), HttpStatus.OK);
+    		 }
+    		catch(BlogNotFoundException blogNotFoundException ){
+    		  return new ResponseEntity(blogNotFoundException.getMessage(), HttpStatus.CONFLICT);
+    		 }
     }
 }
