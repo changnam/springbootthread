@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.honsoft.entity.Blog;
 import com.honsoft.exception.BlogAlreadyExistsException;
 import com.honsoft.exception.BlogNotFoundException;
-import com.honsoft.exception.handler.BlogExceptionHandler;
+import com.honsoft.exception.handler.GlobalExceptionHandler;
 import com.honsoft.service.BlogService;
 
 @RestController
@@ -44,10 +44,5 @@ public class BlogController {
     public ResponseEntity getBlogById(@PathVariable("id") int id) throws BlogNotFoundException {
         return new ResponseEntity(blogService.getBlogById(id), HttpStatus.OK);
     }
-    
-    @ExceptionHandler(value = BlogAlreadyExistsException.class)
-    public ResponseEntity handleBlogAlreadyExistsException(BlogAlreadyExistsException blogAlreadyExistsException) {
-        logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		return new ResponseEntity("Blog already exists", HttpStatus.CONFLICT);
-    }
+
 }
