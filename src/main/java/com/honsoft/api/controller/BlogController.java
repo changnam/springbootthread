@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.honsoft.api.controller.advice.MyApiControllerAdvice;
 import com.honsoft.entity.Blog;
 import com.honsoft.exception.BlogAlreadyExistsException;
 import com.honsoft.exception.BlogNotFoundException;
-import com.honsoft.exception.handler.GlobalApiExceptionHandler;
 import com.honsoft.service.BlogService;
 
 @RestController

@@ -38,7 +38,7 @@ public class BlogServiceImpl implements BlogService {
         Blog blog;
         //int result = 3 / 0;
         if (blogRepository.findById(id).isEmpty()) {
-            throw new BlogNotFoundException();
+            throw new BlogNotFoundException(id+" blog not found");
         } else {
             blog = blogRepository.findById(id).get();
         }

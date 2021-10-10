@@ -1,4 +1,4 @@
-package com.honsoft.exception.handler;
+package com.honsoft.api.controller.advice;
 
 import java.util.Date;
 
@@ -21,7 +21,7 @@ import com.honsoft.exception.BlogNotFoundException;
 import com.honsoft.exception.ErrorDetails;
 
 @RestControllerAdvice(basePackages = "com.honsoft.api.controller")
-public class GlobalApiExceptionHandler {
+public class MyApiControllerAdvice {
 	@Value(value = "${data.exception.message1}")
 	private String message1;
 	@Value(value = "${data.exception.message2}")
@@ -29,20 +29,20 @@ public class GlobalApiExceptionHandler {
 	@Value(value = "${data.exception.message3}")
 	private String message3;
 
-//	@ExceptionHandler(value = BlogAlreadyExistsException.class)
-//	@ResponseStatus(value = HttpStatus.CONFLICT)
-//	public ErrorDetails blogAlreadyExistsException(BlogAlreadyExistsException blogAlreadyExistsException,
-//			WebRequest request) {
-//		return new ErrorDetails(new Date(), blogAlreadyExistsException.getMessage(), request.getDescription(false));
-//	}
+	@ExceptionHandler(value = BlogAlreadyExistsException.class)
+	@ResponseStatus(value = HttpStatus.CONFLICT)
+	public ErrorDetails blogAlreadyExistsException(BlogAlreadyExistsException blogAlreadyExistsException,
+			WebRequest request) {
+		return new ErrorDetails(new Date(), blogAlreadyExistsException.getMessage(), request.getDescription(false));
+	}
 
-//	@ExceptionHandler(value = BlogNotFoundException.class)
-//	@ResponseStatus(value = HttpStatus.NOT_FOUND)
-//	public ErrorDetails blogNotFoundException(BlogNotFoundException blogNotFoundException, WebRequest request) {
-//
-//		ErrorDetails errorDetails = new ErrorDetails(new Date(), blogNotFoundException.getMessage(),
-//				request.getDescription(false));
-//		return errorDetails;
-//	}
+	@ExceptionHandler(value = BlogNotFoundException.class)
+	@ResponseStatus(value = HttpStatus.NOT_FOUND)
+	public ErrorDetails blogNotFoundException(BlogNotFoundException blogNotFoundException, WebRequest request) {
+
+		ErrorDetails errorDetails = new ErrorDetails(new Date(), blogNotFoundException.getMessage(),
+				request.getDescription(false));
+		return errorDetails;
+	}
 
 }
