@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.honsoft.exception.BlogAlreadyExistsException;
 import com.honsoft.exception.BlogNotFoundException;
@@ -22,24 +23,30 @@ public class GlobalExceptionHandler {
     @Value(value = "${data.exception.message3}")
     private String message3;
     
-    @ExceptionHandler(value = BlogAlreadyExistsException.class)
-    public String blogAlreadyExistsException(BlogAlreadyExistsException blogAlreadyExistsException,Model m) {
-        m.addAttribute("message",message1);
-        
-    	return "error";
-    }
-    
-    @ExceptionHandler(value = BlogNotFoundException.class)
-    public String blogNotFoundException(BlogNotFoundException blogNotFoundException,Model m) {
-    	 m.addAttribute("message",message2);
-         
-     	return "error";
-    }
+//    @ExceptionHandler(value = BlogAlreadyExistsException.class)
+//    public ModelAndView blogAlreadyExistsException(BlogAlreadyExistsException blogAlreadyExistsException) {
+//        ModelAndView m = new ModelAndView();
+//        
+//    	m.addObject("message",message1);
+//    	m.setViewName("error");
+//        
+//    	return m;
+//    }
+//    
+//    @ExceptionHandler(value = BlogNotFoundException.class)
+//    public ModelAndView blogNotFoundException(BlogNotFoundException blogNotFoundException) {
+//    	ModelAndView m = new ModelAndView();
+//    	
+//    	m.addObject("message",message2);
+//        m.setViewName("error");
+//        
+//     	return m;
+//    }
 
-    @ExceptionHandler(value = Exception.class)
-    public String  databaseConnectionFailsException(Exception exception,Model m) {
-    	 m.addAttribute("message",message3);
-         
-     	return "error";
-    }
+//    @ExceptionHandler(value = Exception.class)
+//    public String  databaseConnectionFailsException(Exception exception,Model m) {
+//    	 m.addAttribute("message",message3);
+//         
+//     	return "error";
+//    }
 }

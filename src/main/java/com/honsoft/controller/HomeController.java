@@ -43,5 +43,19 @@ public class HomeController {
 		
 		return "blog";
 	}
+	
+	@GetMapping("/ex")
+	public String ex(Model m) {
+		m.addAttribute("blog", blogService.getException());
+		
+		return "blog";
+	}
+	
+	@GetMapping("/my-error-page")
+	public String myErrorPage(Model m) {
+				
+		return "my-error-page";
+	}
+	
 
 }

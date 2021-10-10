@@ -28,7 +28,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 		.antMatchers("/favicon.ico").permitAll()
 		.antMatchers("/h2-console/**").hasRole("ADMIN")
+		.antMatchers("/secured/**").authenticated()
 		.antMatchers("/**").permitAll();
+		http.exceptionHandling().accessDeniedPage("/my-error-page");
 		http.formLogin().permitAll();
 		//spring security filter chain 에 추가됨. container filter 로 추가되지는 않음
 		http.addFilterBefore(new MyFilterSecurity(), UsernamePasswordAuthenticationFilter.class);
