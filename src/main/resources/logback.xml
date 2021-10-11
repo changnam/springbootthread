@@ -78,7 +78,15 @@
 	<logger name="org.springframework.security" level="info" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
-	
+	<logger name="org.springframework.boot.devtools" level="info" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="org.springframework.beans.factory" level="info" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>	
+	<logger name="com.zaxxer" level="info" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
 	<!-- root는 글로벌 로거를 의미하며, 위의 logger에 해당하지 않으면 root 로거가 실행된다. 
 	<root level="debug">
 		<appender-ref ref="consoleAppender" />

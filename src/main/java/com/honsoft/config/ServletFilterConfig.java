@@ -1,5 +1,6 @@
 package com.honsoft.config;
 
+import org.apache.catalina.servlets.DefaultServlet;
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -44,6 +45,18 @@ public class ServletFilterConfig {
 
 		return servlet;
 	}
+	
+	//@Bean
+	//public ServletRegistrationBean<DefaultServlet> registerDefaultServlet() {
+	//	ServletRegistrationBean<DefaultServlet> servlet = new ServletRegistrationBean<>();
+
+	//	servlet.setServlet(new DefaultServlet());
+		//servlet.addUrlMappings("/*");
+	//	servlet.setName("defaultServlet");
+		//servlet.setOrder(100);
+
+	//	return servlet;
+	//}
 
 	@Bean
 	public FilterRegistrationBean<MyFilterOne> registerMyfilterOne() {
