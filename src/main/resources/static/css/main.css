@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.bg-dark {
+	background-color:green !important;
+}
+
+#footer {
+	background-color: green;
+}
+
+#header {
+	background-color: yellow;
+}
