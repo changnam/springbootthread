@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="~{layouts/layout}">
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+
 </head>
 <body>
-	<h1 th:text=${message}> 이것은 에러 페이지 잆니다 </h1>
+	<div layout:fragment="content" id="xxxx">
+		<h1 th:text=${message}> 이것은 에러 페이지 잆니다 </h1>
+		
+		<h2 th:text=${mymessage}>마이 메시지</h2>
 	
-	<h2 th:text=${mymessage}>마이 메시지</h2>
-	
-	
+	</div>
 </body>
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<th:block th:fragment="f-head">
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="imagetoolbar" content="no">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta http-equiv="Expires" content="0" />
+		<meta name="title" content="혼소프트" />
+		<meta name="publisher" content="혼소프트" />
+		<meta name="author" content="혼소프트" />
+		<meta name="robots" content="index,follow" />
+		<meta name="keywords"
+			content="개발, 운영, 자바, thymeleaf, kubernetes, spring, springboot, java" />
+		<meta name="description" content="자바 개발" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta property="og:title" content="혼소프트" />
+		<meta property="og:site_name" content=혼소프트 />
+		<meta property="og:author" content="한국금거래소" />
+		<meta property="og:type" content="" />
+		<meta property="og:description" content="자바, 쿠버네티스" />
+		<meta property="og:url" content="http://www.honsoft.co.kr/" />
+		<title>혼소프트</title>
+		
+		<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css" media="all" />
+		<script type="text/javascript" src="/webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+		<script type="text/javascript" src="/webjars/vue/2.6.14/vue.min.js"></script>
+		<style>
+		.wrapper {
+		    display: flex;
+		    width: 100%;
+		    align-items: stretch;
+			}
+		</style>
+	</th:block>
+</head>
+<body>
+	<header th:fragment="f-header" id="header">
+		<h1> this is heading from fragment </h1>
+	</header>
+	
+	<div th:fragment="f-content" layout:fragment="content" id="content">
+		<h1>this is content area from fragment</h1>
+	</div>
+	
+	<footer th:fragment="f-footer" id="footer" class="fixed-bottom text-center bg-primary">
+		<h1> copyright : honsoft</h1>
+	</footer>
+</body>
+</html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="~{layouts/layout}">
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+
 </head>
 <body>
-	<h1>This is index page</h1>
+	<div layout:fragment="content" id="xxx">
+		<h1> this is index page from index.html </h1>
+	</div>
 </body>
 </html>

@@ -32,11 +32,11 @@ public class HomeController {
         this.blogService = blogService;
     }
     
-	//@GetMapping("/")
-	//public String index() {
-	//	logger.info("!!!!!!!!!!!!!!!!!!!!!!!"+env.getProperty("user.dir"));
-	//	return "index";
-	//}
+	@GetMapping("/")
+	public String index() {
+		logger.info("!!!!!!!!!!!!!!!!!!!!!!!"+env.getProperty("user.dir"));
+		return "index";
+	}
 	
 	@GetMapping("/session")
 	public @ResponseBody String session(ServletRequest req) {

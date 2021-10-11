@@ -24,6 +24,9 @@ public class MyTomcatWebServerCustomizer implements WebServerFactoryCustomizer<T
 	
     @Value("${tomcat.file.base}")  // C:\\some\\parent\\child
     String tomcatBaseDir;
+    
+    @Value("${user.dir}")
+    String currentDir;
 
     @Override
     public void customize(TomcatServletWebServerFactory factory) {
@@ -42,7 +45,8 @@ public class MyTomcatWebServerCustomizer implements WebServerFactoryCustomizer<T
     	Collection<TomcatContextCustomizer> customizers = factory.getTomcatContextCustomizers();
     	logger.info("+++++++++++++++++ " +Integer.toString(customizers.size()));
     	
-    	factory.setDocumentRoot(new File(tomcatBaseDir));
+    	logger.info("+++++++++++++++++ current directory : " +currentDir);
+    	factory.setDocumentRoot(new File(currentDir));
 //    	Iterator<TomcatContextCustomizer> iter = customizers.iterator();
     	
 //    	while(iter.hasNext()) {
